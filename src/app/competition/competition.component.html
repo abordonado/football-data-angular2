@@ -1,0 +1,67 @@
+<button (click)="getAllCompetitions();">Search all competitions</button>
+
+<div *ngIf="competitions.length">
+  <br>
+  <br>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Caption</th>
+      <th>League</th>
+      <th>Year</th>
+      <th>Current Match Day</th>
+      <th>Number of Match Days</th>
+      <th>Number of Teams</th>
+      <th>Last Updated</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let competition of competitions" (click)="getFixturesByCompetition(competition)">
+      <td> {{ competition.id }}</td>
+      <td> {{ competition.caption }}</td>
+      <td> {{ competition.league }}</td>
+      <td> {{ competition.year }}</td>
+      <td> {{ competition.currentMatchday }}</td>
+      <td> {{ competition.numberOfMatchdays }}</td>
+      <td> {{ competition.numberOfTeams }}</td>
+      <td> {{ competition.lastUpdated }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div *ngIf="fixtures.length">
+  <h2>Fixtures</h2>
+  <br>
+  <br>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>Home</th>
+      <th></th>
+      <th></th>
+      <th>Away</th>
+      <th>Date</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let fixture of fixtures">
+      <td> {{fixture.homeTeamName }}</td>
+      <td> {{fixture.result.goalsHomeTeam}}</td>
+      <td> {{fixture.result.goalsAwayTeam}}</td>
+      <td> {{fixture.awayTeamName}}</td>
+      <td> {{fixture.date}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
